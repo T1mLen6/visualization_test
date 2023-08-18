@@ -1,2 +1,21 @@
 #moximoxi
 
+import matplotlib.pyplot as plt
+import csv
+  
+x = []
+y = []
+  
+with open('Pouring_Data_2023-08-14 15-40-40.csv','r') as csvfile:
+    plots = csv.reader(csvfile, delimiter = ',')
+      
+    for row in plots:
+        x.append(row[0])
+        y.append(int(row[2]))
+  
+plt.bar(x, y, color = 'g', width = 0.72, label = "Age")
+plt.xlabel('Names')
+plt.ylabel('Ages')
+plt.title('Ages of different persons')
+plt.legend()
+plt.show()
