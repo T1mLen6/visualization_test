@@ -63,7 +63,7 @@ ax[1].set_title('Robot Real-time Pouring Data (splined)')
 ax[0].grid(color='silver', linestyle='-', linewidth=1)
 ax[1].grid(color='silver', linestyle='-', linewidth=1)
 
-fig.tight_layout( h_pad=1.2)
+fig.tight_layout(h_pad=1.2)
 
 ax[0].legend()
 ax[1].legend()
