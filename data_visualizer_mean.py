@@ -41,7 +41,7 @@ def csv_opener(filename):
                 y_current = float(row[2])
                 y_foam_current = float(row[3])
                 
-                if abs(y_current-y_before) >= 3 and x_current >= 75:
+                if abs(y_current-y_before) >= 2 and x_current >= 50:
                    y_current = y_before 
                 x.append(x_current)
                 y.append(y_current) 
@@ -49,7 +49,7 @@ def csv_opener(filename):
             
                 y_before = y_current
         
-        offset_factor = 180 # change for every %
+        offset_factor = 100 # change for every %
                 
         x = x[align_index - offset_factor :]
         y = y[align_index - offset_factor :]
@@ -64,7 +64,7 @@ def csv_opener(filename):
 def longest(y_big):
     return max(y_big, key=len)
     
-percent = 30
+percent = 60
 
 if percent == 30:
     x_1, y_1, y_1f = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-23-09.csv')
@@ -128,15 +128,18 @@ font2 = {'fontname': 'Times New Roman'}
 
 
 
-fig, ax = plt.subplots()
+
+
+# Desired width-to-height ratio
+width_to_height_ratio = 1.618123  # For example, 16:9 ratio
 
 # plt.rcParams.update({
 #     "text.usetex": True,
 #     "font.family": 'serif'
 # })
+fig, ax = plt.subplots(figsize=(8, 8 / width_to_height_ratio))    
     
-    
-ax.set_xlim(-0.7,78)# use 57 for 30%, and 38 for other percentages
+ax.set_xlim(-0.7,33)# use 57 for 30%, and 38 for other percentages
 ax.set_ylim(-2,100)
 
 ax.grid(color='silver', linestyle='-', linewidth=1, alpha = 0.6)
@@ -151,14 +154,13 @@ ax.fill_between(np.arange(x_plot[0],x_plot[-1]+0.1, 0.1), y_plotf - errorf, y_pl
 for label in (ax.get_xticklabels() + ax.get_yticklabels()):
     label.set_fontname('Times New Roman')
 
-ax.set_xticks(np.arange(0, 80, 10), **font2) 
+ax.set_xticks(np.arange(0, 35, 2), **font2) 
 ax.set_yticks(np.linspace(0, 100, num=11), **font2)
 ax.set_xlabel("Time [s]", **font2)
 ax.set_ylabel("Percentage %", **font2)
 ax.set_title("Coke Pouring: " + str(percent) + "%", **font2)
 
 ax.legend(prop={'family': 'Times New Roman'}, loc='lower right', bbox_to_anchor=(0.32,0.72))
-
 
 
 # Save and display the plot
