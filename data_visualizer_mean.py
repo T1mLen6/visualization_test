@@ -112,21 +112,15 @@ if percent == 90:
     x_3, y_3 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')
     x_4, y_4 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-51-43.csv')
     x_5, y_5 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')    
-    
-
 
 x_big = [x_1, x_2, x_3, x_4, x_5]
 y_big = [y_1, y_2, y_3, y_4, y_5]
 y_bigf = [y_1f, y_2f, y_3f, y_4f, y_5f]
 
-
 x_plot = longest(x_big)
 y_plot, error = tolerant_mean(y_big)
 y_plotf, errorf = tolerant_mean(y_bigf)
-#print(error)
 
-
-#print(y_1)
 fig, ax = plt.subplots()
 ax.set_xlim(0,57)
 ax.set_ylim(0,100)
@@ -141,8 +135,7 @@ ax.plot(np.arange(x_plot[0],x_plot[-1]+0.1, 0.1) , y_plotf, color='crimson', lab
 ax.fill_between(np.arange(x_plot[0],x_plot[-1]+0.1, 0.1), y_plotf - errorf, y_plotf + errorf, color='pink', label='Foam Range', alpha = 0.6)
 
 
-
-#ax.set_xticks([0,5,10,15,20,25,30,35,40,45,50,55])
+#ax.set_xticks([0,5,10,15,20,25,30,35,40,45,50,55]) #use this when the % = 30!!!!!!!!!!!!
 ax.set_yticks(np.linspace(0, 100, num=11))
 ax.set(xlabel = "Time [s]", ylabel = "Percentage %")
 ax.legend()
