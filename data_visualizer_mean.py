@@ -1,9 +1,6 @@
-#moximoxi
-
 import matplotlib.pyplot as plt
 import csv
 import numpy as np
-from scipy import interpolate
 
 
 def tolerant_mean(arrs):
