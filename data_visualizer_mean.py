@@ -122,7 +122,7 @@ y_plot, error = tolerant_mean(y_big)
 y_plotf, errorf = tolerant_mean(y_bigf)
 
 fig, ax = plt.subplots()
-ax.set_xlim(0,57)
+ax.set_xlim(0,57)# use 57 for 30%, and 38 for other percentages
 ax.set_ylim(0,100)
 ax.set_title('Robot Real-time Pouring Data (5-runs averaged) (' + str(percent) + '%)')
 
