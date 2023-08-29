@@ -18,20 +18,43 @@ def tolerant_mean(arrs):
 
 x = []
 y = []
+switch = True
+index = 0
+
   
-with open('sorted/30/Pouring_Data_2023-08-20 19-57-22.csv','r') as csvfile:
+with open('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv','r') as csvfile:
     plots = csv.reader(csvfile, delimiter = ',')
       
     for row in plots:
         #print(type(row[8]))
   
-        if row[8] == 'True':
+        
+        if row[9] == 'True' and switch == True:
             #print(row)
+            align_index = index
+            #while switch == True:
+            #    [x.append(per) for per in range(index-10, index)]
             
+            #x.append(round(float(row[0]),2))
+            #y.append(float(row[2]))
+            switch = False
+        
+        index += 1   
+        
+        if index > 1:
             x.append(round(float(row[0]),2))
-            y.append(float(row[2]))          
+            y.append(float(row[2]))   
+                
+        
+        
+                
   
-print(x)
+print(align_index)
+
+
+x = x[align_index-40 :]
+y = y[align_index-40 :]
+
 x_array = np.array(x) - x[0]
 y_array = np.array(y)
 fig, ax = plt.subplots(2)
