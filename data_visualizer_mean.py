@@ -47,7 +47,7 @@ def csv_opener(filename):
             
                 y_before = y_current
         
-        offset_factor = 130
+        offset_factor = 130 # change for every %
                 
         x = x[align_index - offset_factor :]
         y = y[align_index - offset_factor :]
