@@ -9,7 +9,7 @@ def tolerant_mean(arrs):
     arr.mask = True
     for idx, l in enumerate(arrs):
         arr[:len(l),idx] = l
-    return arr.mean(axis = -1), arr.std(axis=-1)
+    return arr.mean(axis=-1), arr.std(axis=-1), arr.max(axis=-1), arr.min(axis=-1)
 
 def csv_opener(filename):
     x = []
@@ -62,32 +62,32 @@ def longest(y_big):
 percent = 70
 
 if percent == 30:
-    x_1, y_1 = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-23-09.csv')
-    x_2, y_2 = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-25-20.csv')
-    x_3, y_3 = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-34-16.csv')
-    x_4, y_4 = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 19-52-43.csv')
-    x_5, y_5 = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 19-57-22.csv')    
+    x_1, y_1, y_1f = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-23-09.csv')
+    x_2, y_2, y_2f = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-25-20.csv')
+    x_3, y_3, y_1f = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-34-16.csv')
+    x_4, y_4, y_1f = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 19-52-43.csv')
+    x_5, y_5, y_1f = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 19-57-22.csv')    
 
 if percent == 40:
-    x_1, y_1 = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 18-12-51.csv')
-    x_2, y_2 = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 18-18-30.csv')
-    x_3, y_3 = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 18-20-45.csv')
-    x_4, y_4 = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 19-44-23.csv')
-    x_5, y_5 = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 19-47-19.csv')    
+    x_1, y_1, y_1f = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 18-12-51.csv')
+    x_2, y_2, y_2f = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 18-18-30.csv')
+    x_3, y_3, y_3f = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 18-20-45.csv')
+    x_4, y_4, y_4f = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 19-44-23.csv')
+    x_5, y_5, y_5f = csv_opener('sorted/40/selected/Pouring_Data_2023-08-20 19-47-19.csv')    
 
 if percent == 50:
-    x_1, y_1 = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 18-02-06.csv')
-    x_2, y_2 = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 18-05-02.csv')
-    x_3, y_3 = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 18-44-34.csv')
-    x_4, y_4 = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 19-39-26.csv')
-    x_5, y_5 = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 19-42-08.csv')    
+    x_1, y_1, y_1f = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 18-02-06.csv')
+    x_2, y_2, y_2f = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 18-05-02.csv')
+    x_3, y_3, y_3f = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 18-44-34.csv')
+    x_4, y_4, y_4f = csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 19-39-26.csv')
+    x_5, y_5, y_5f= csv_opener('sorted/50/selected/Pouring_Data_2023-08-20 19-42-08.csv')    
 
 if percent == 60:
-    x_1, y_1 = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-04-54.csv')
-    x_2, y_2 = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-07-46.csv')
-    x_3, y_3 = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-10-46.csv')
-    x_4, y_4 = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-13-09.csv')
-    x_5, y_5 = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-15-28.csv')    
+    x_1, y_1, y_1f = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-04-54.csv')
+    x_2, y_2, y_2f = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-07-46.csv')
+    x_3, y_3, y_3f = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-10-46.csv')
+    x_4, y_4, y_4f = csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-13-09.csv')
+    x_5, y_5, y_5f= csv_opener('sorted/60/selected/Pouring_Data_2023-08-20 17-15-28.csv')    
 
 if percent == 70:
     x_1, y_1, y_1f = csv_opener('sorted/70/selected/Pouring_Data_2023-08-20 16-46-17.csv')
@@ -97,31 +97,37 @@ if percent == 70:
     x_5, y_5, y_5f = csv_opener('sorted/70/selected/Pouring_Data_2023-08-20 16-55-27.csv')    
 
 if percent == 80:
-    x_1, y_1 = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-34-22.csv')
-    x_2, y_2 = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-37-22.csv')
-    x_3, y_3 = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-39-26.csv')
-    x_4, y_4 = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-41-28.csv')
-    x_5, y_5 = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-44-17.csv')    
+    x_1, y_1, y_1f = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-34-22.csv')
+    x_2, y_2, y_2f = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-37-22.csv')
+    x_3, y_3, y_3f = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-39-26.csv')
+    x_4, y_4, y_4f = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-41-28.csv')
+    x_5, y_5, y_5f = csv_opener('sorted/80/selected/Pouring_Data_2023-08-20 16-44-17.csv')    
     
 if percent == 90:
-    x_1, y_1 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')
-    x_2, y_2 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-51-43.csv')
-    x_3, y_3 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')
-    x_4, y_4 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-51-43.csv')
-    x_5, y_5 = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')    
+    x_1, y_1, y_1f = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')
+    x_2, y_2, y_2f = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-51-43.csv')
+    x_3, y_3, y_3f = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')
+    x_4, y_4, y_4f = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-51-43.csv')
+    x_5, y_5, y_5f = csv_opener('sorted/90/selected/Pouring_Data_2023-08-20 15-48-45.csv')    
 
 x_big = [x_1, x_2, x_3, x_4, x_5]
 y_big = [y_1, y_2, y_3, y_4, y_5]
 y_bigf = [y_1f, y_2f, y_3f, y_4f, y_5f]
 
 x_plot = longest(x_big)
-y_plot, error = tolerant_mean(y_big)
-y_plotf, errorf = tolerant_mean(y_bigf)
+y_plot, error, max, min     = tolerant_mean(y_big)
+y_plotf, errorf, maxf, minf = tolerant_mean(y_bigf)
+
+
+# Define a custom font dictionary
+font2 = {'fontname': 'Times New Roman'}
 
 fig, ax = plt.subplots()
-ax.set_xlim(0,57)# use 57 for 30%, and 38 for other percentages
-ax.set_ylim(0,100)
-ax.set_title('Robot Real-time Pouring Data (5-runs averaged) (' + str(percent) + '%)')
+
+
+    
+ax.set_xlim(-0.7,43)# use 57 for 30%, and 38 for other percentages
+ax.set_ylim(-2,100)
 
 ax.grid(color='silver', linestyle='-', linewidth=1)
 
@@ -131,9 +137,17 @@ ax.fill_between(np.arange(x_plot[0],x_plot[-1]+0.1, 0.1), y_plot - error, y_plot
 ax.plot(np.arange(x_plot[0],x_plot[-1]+0.1, 0.1) , y_plotf, color='crimson', label='Foam Mean')
 ax.fill_between(np.arange(x_plot[0],x_plot[-1]+0.1, 0.1), y_plotf - errorf, y_plotf + errorf, color='pink', label='Foam Range', alpha = 0.6)
 
+# Set the font for tick labels
+for label in (ax.get_xticklabels() + ax.get_yticklabels()):
+    label.set_fontname('Times New Roman')
 
-#ax.set_xticks([0,5,10,15,20,25,30,35,40,45,50,55]) #use this when the % = 30!!!!!!!!!!!!
-ax.set_yticks(np.linspace(0, 100, num=11))
-ax.set(xlabel = "Time [s]", ylabel = "Percentage %")
-ax.legend()
+ax.set_xticks(np.arange(0, 45, 5), **font2) 
+ax.set_yticks(np.linspace(0, 100, num=11), **font2)
+ax.set_xlabel("Time [s]", **font2)
+ax.set_ylabel("Percentage %", **font2)
+ax.set_title("Coke Pouring: " + str(percent) + "%", **font2)
+ax.legend(prop = {'family': 'Times New Roman'})
+
+# Save and display the plot
+plt.savefig(str(percent) + '.png', dpi = 600)
 plt.show()
