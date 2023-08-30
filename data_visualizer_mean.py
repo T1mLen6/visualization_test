@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import csv
 import numpy as np
 from matplotlib.text import Text
-#import matplotlib as mpl
 
 #mpl.rcParams.update(mpl.rcParamsDefault)
 
@@ -31,7 +30,6 @@ def csv_opener(filename):
             if row[8] == 'True' and switch == True:
 
                 align_index = index
-                print('align_index is:', align_index)
                 switch = False
     
             index += 1   
@@ -49,7 +47,7 @@ def csv_opener(filename):
             
                 y_before = y_current
         
-        offset_factor = 100 # change for every %
+        offset_factor = 150 # change for every %
                 
         x = x[align_index - offset_factor :]
         y = y[align_index - offset_factor :]
@@ -64,7 +62,7 @@ def csv_opener(filename):
 def longest(y_big):
     return max(y_big, key=len)
     
-percent = 60
+percent = 90
 
 if percent == 30:
     x_1, y_1, y_1f = csv_opener('sorted/30/selected/Pouring_Data_2023-08-20 18-23-09.csv')
@@ -126,20 +124,12 @@ y_plotf, errorf, maxf, minf = tolerant_mean(y_bigf)
 # Define a custom font dictionary
 font2 = {'fontname': 'Times New Roman'}
 
-
-
-
-
 # Desired width-to-height ratio
-width_to_height_ratio = 1.618123  # For example, 16:9 ratio
+width_to_height_ratio = 2.2  # For example, 16:9 ratio
 
-# plt.rcParams.update({
-#     "text.usetex": True,
-#     "font.family": 'serif'
-# })
 fig, ax = plt.subplots(figsize=(8, 8 / width_to_height_ratio))    
     
-ax.set_xlim(-0.7,33)# use 57 for 30%, and 38 for other percentages
+ax.set_xlim(-0.7,40)# use 57 for 30%, and 38 for other percentages
 ax.set_ylim(-2,100)
 
 ax.grid(color='silver', linestyle='-', linewidth=1, alpha = 0.6)
@@ -154,13 +144,13 @@ ax.fill_between(np.arange(x_plot[0],x_plot[-1]+0.1, 0.1), y_plotf - errorf, y_pl
 for label in (ax.get_xticklabels() + ax.get_yticklabels()):
     label.set_fontname('Times New Roman')
 
-ax.set_xticks(np.arange(0, 35, 2), **font2) 
+ax.set_xticks(np.arange(0, 41, 2), **font2) 
 ax.set_yticks(np.linspace(0, 100, num=11), **font2)
 ax.set_xlabel("Time [s]", **font2)
 ax.set_ylabel("Percentage %", **font2)
-ax.set_title("Coke Pouring: " + str(percent) + "%", **font2)
+#ax.set_title("Coke Pouring: " + str(percent) + "%", **font2)
 
-ax.legend(prop={'family': 'Times New Roman'}, loc='lower right', bbox_to_anchor=(0.32,0.72))
+ax.legend(prop={'family': 'Times New Roman'}, loc='lower right', bbox_to_anchor=(0.24, 0.63))
 
 
 # Save and display the plot
